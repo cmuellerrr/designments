@@ -1,0 +1,180 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font: 0.875em/1.5 serif;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre {
+    margin-bottom: 21px;
+    margin-bottom: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, table, th, td, caption, hr {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrap {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 50px 10px;
+}
+
+.masthead {
+    background-color: #fff;
+}
+
+.page-head .wrap {
+    max-width: 700px;
+}
+
+.page-head {
+    background-color: #fff;
+    border-bottom: 1px solid #e9e9e9;
+    text-align: center;
+}
+
+.post {
+    width: 500px;
+    margin-bottom: 30px;
+}
+
+.post, .post-notes, .post-comments {
+    background-color: #ffffff;
+}
+
+.post, .post-notes, .post-comments {
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+    -ms-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+    -o-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+}
+
+.post-media {
+    margin-bottom: 0;
+}
+
+.post-media a {
+    display: block;
+}
+
+.post-media a img {
+    float: left;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-foot {
+    padding: 0 20px 16px;
+    /*color: #b7b7b7;
+    font-size: 0.92em;*/
+}
+
+.post-foot > :first-child {
+    padding-top: 0;
+}
+
+hr, .post-meta, .post-tags {
+    border-color: #ebebeb;
+}
+
+.post-meta {
+    padding-bottom: 10px;
+}
+
+.post-meta, .post-tags, .post-social {
+    margin-bottom: 0;
+    padding: 13px 0;
+}
+
+.nav, .site-links, .social-links, .post-meta, .post-tags, .post-social {
+    margin-left: 0;
+    list-style: none;
+}
+
+.nav > li, .site-links > li, .social-links > li, .post-meta > li, .post-tags > li, .post-social > li, .nav > li > a, .site-links > li > a, .social-links > li > a, .post-meta > li > a, .post-tags > li > a, .post-social > li > a {
+    display: inline-block;
+    zoom: 1;
+}
+
+.post-foot, .post-meta a, .post-meta a:hover, .post-meta a:active, .post-meta a:focus, .post-tags a, .post-tags a:hover, .post-tags a:active, .post-tags a:focus {
+color: #b7b7b7;
+}
+
+.post-reblog-btn, .post-like-btn {
+    float: right;
+    margin-left: 10px;
+}
+
+.post-foot > :last-child {
+    padding-bottom: 0;
+}
+
+hr, .post-meta, .post-tags {
+    border-color: #ebebeb;
+}
+
+.post-tags {
+    border-top: 1px solid #ebebeb;
+}
+
+.post-meta, .post-tags, .post-social {
+    margin-bottom: 0;
+    padding: 13px 0;
+}
+
+.nav, .site-links, .social-links, .post-meta, .post-tags, .post-social {
+    margin-left: 0;
+    list-style: none;
+}
+
+.post-tags > li:first-child {
+    margin-left: 0;
+}
+
+.post-tags > li {
+    margin: 0 2px;
+}
+
+.post-tags > li > a:before {
+content: "#";
+}
+
+.post-reblog-btn, .post-like-btn {
+    float: right;
+    margin-left: 10px;
+}
+
+a {
+    color: #00b5ad;
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: underline;
+}
+
+.reblog-btn, .like-btn {
+    float: right;
+    margin-left: 10px;
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+    <head>
+        {MobileAppHeaders}
+        <meta charset="utf-8">
+        <title>{Title}{block:TagPage} — {Tag}{/block:TagPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+        
+        <!-- Theme Defaults -->
+        <meta name="Title font" content="Helvetica Neue">
+        <meta name="Title font weight" content="bold" title="Bold">
+        <meta name="Title font weight" content="normal" title="Normal">
+        <meta name="Body font" content="Helvetica Neue">
+        <meta name="Background color" content="#f4f4f4">
+        <meta name="Title color" content="#444444">
+        <meta name="Link color" content="#529ecc">
+  
+        <meta name="image:Masthead" content="" />
+
+        <meta name="if:Endless scrolling" content="1">
+
+        <meta name="select:Avatar style" content="circle" title="Circle">
+        <meta name="select:Avatar style" content="square" title="Square">
+        <meta name="select:Avatar style" content="hidden" title="Hidden">
+
+        <meta name="text:Disqus shortname" content="">
+        <meta name="text:Tumblr API URL" content="">
+        <meta name="text:Tumblr API Key" content="">
+        <meta name="text:Google analytics ID" content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        
+        <link rel="stylesheet" href="http://static.tumblr.com/vr9xgox/PuGmmhqcs/normalize.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/3imr7iu/kRqn2v0gd/main.css">
+
+        <!-- HTML5 Shiv -->
+        <!--[if lt IE 9]>
+                <script src="http://static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+            /* Colors */
+            body {
+                background: {BackgroundColor};
+                font-family: {BodyFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+            }
+
+            h1 {
+                font-family: {TitleFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+                font-weight: {TitleFontWeight};
+            }
+
+            h2, .attribution-tags {
+                font-family: {BodyFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+            }
+
+            h1 a,
+            #pagination a,
+            .exposed-nav-wrapper li a,
+            .sub-title,
+            .search-header {
+                color: {TitleColor};
+            }
+            
+            #pagination a.next:after {
+                border-left-color: {TitleColor};
+            }
+
+            #pagination a.previous:after {
+                border-right-color: {TitleColor};
+            }
+
+            .h-line {
+                background: {TitleColor};
+            }
+
+            a {
+                color: {LinkColor};
+            }
+
+            .link-wrapper h2 a {
+                background-color: {LinkColor};
+            }
+
+            .user-avatar {
+                background-color: {BackgroundColor};
+                border-color: {BackgroundColor};
+            }
+
+            .avatar-style-square .user-avatar {
+                -wekbit-box-shadow: 0 0 0 4px {BackgroundColor};
+                -moz-box-shadow: 0 0 0 4px {BackgroundColor};
+                box-shadow: 0 0 0 4px {BackgroundColor};
+            }
+
+            /* Custom CSS */
+            {CustomCSS}
+        </style>
+    </head>
+    <body data-urlencoded-name="{URLEncodedName}">
+        <div class="masthead">
+            <div class="header-image-wrapper">
+                <a href="/" class="masthead-img" data-bg-image="{image:Masthead}"><img src="{image:Masthead}"/></a>
+            </div>
+        </div>
+
+        <header class="page-head">
+            <div class="wrap">
+                {block:IndexPage}
+                    {block:TagPage}<h1><span class="ht">#</span>{Tag}</h1>{/block:TagPage}
+                    <p class="site-welcome {block:TagPage}hidden{/block:TagPage}">{Description}</p>
+                    {block:TagPage}<div id="dsgnmnt"></div>{/block:TagPage}
+                {/block:IndexPage}
+            </div>
+        </header>
+
+        <div class="page-content">
+            <div class="wrap" id="post-wrap">
+                {block:IndexPage}
+                <h2 class="{block:TagPage}hidden{/block:TagPage}">Challenges</h2>
+                {block:TagPage}<h2>Submissions</h2>{/block:TagPage}
+                {/block:IndexPage}
+
+                {block:TagPage}
+                    {block:Posts}
+                    <article class="post {block:Text}text {/block:Text}{block:Photoset}photoset {/block:Photoset}{block:Photo}photo {/block:Photo}{block:RebloggedFrom}reblogged {/block:RebloggedFrom}{block:Quote}quote {/block:Quote}{block:Link}link {/block:Link}{block:Chat}chat {/block:Chat}{block:Audio}audio {/block:Audio}{block:Video}video {/block:Video}{block:Answer}answer {/block:Answer}" id="post_{PostID}">
+
+                        {block:Text}
+                        <div class="post-content">
+                            {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+                            {block:Body}{Body}{/block:Body}
+                        </div>
+                        {/block:Text}
+                        
+                        {block:Photo}
+                        <figure class="post-media">
+                            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">{LinkCloseTag}
+                        </figure>
+                        <div class="post-content">{block:Caption}{Caption}{/block:Caption}</div>
+                        {/block:Photo}
+
+                        {block:Photoset}
+                        <figure class="post-media">
+                            {Photoset}
+                        </figure>
+                        <div class="post-content">{block:Caption}{Caption}{/block:Caption}</div>
+                        {/block:Photoset}
+
+                        {block:Video}                            
+                        <figure class="post-media">
+                            {Video-700}
+                        </figure>
+                        <div class="post-content">{block:Caption}{Caption}{/block:Caption}</div>
+                        {/block:Video}
+
+                        {block:Link}
+                        <div class="post-content">
+                            <h3><a {Target} href="{URL}">{Name}</a></h3>
+                            {block:Description}{Description}{/block:Description}
+                        </div>
+                        {/block:Link}
+
+                        {block:Audio}
+                        <div class="audio_container">
+                            {block:AudioEmbed}
+                            {AudioEmbed color="white"}
+                            {/block:AudioEmbed}
+                        </div>
+                        <div class="post-content">{block:Caption}{Caption}{/block:Caption}</div>
+                        {/block:Audio}
+
+                        {block:Chat}
+                        <div class="post-content">
+                            {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+                            <ul class="conversation">
+                                {block:Lines}
+                                <li class="chat-{Alt}">{block:Label}<span class="label">{Label}</span>{/block:Label} {Line}</li>
+                                {/block:Lines}
+                            </ul>
+                        </div>
+                        {/block:Chat}
+
+                        <!--<p>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a></p>
+                        <a class="post-author-avatar" href="{PostAuthorURL}" target=""><img src="{PostAuthorPortraitURL-40}" alt="{PostAuthorName}"/></a>-->
+                        
+                        <div class="post-foot">
+                            <ul class="post-meta">
+                                <li><a href="{Permalink}" title="{TimeAgo}">{DayOfMonth} {ShortMonth} {Year}{block:NoteCount} / {NoteCountWithLabel}{block:NoteCount}</a></li>
+                                <li class="like-btn">{LikeButton size="20" color="grey"}</li>
+                                <li class="reblog-btn">{ReblogButton size="21" color="grey"}</li>
+                            </ul>
+
+                            {block:HasTags}
+                            <ul class="post-tags">
+                                {block:Tags}
+                                <li><a href="{TagURL}">{Tag}</a></li>
+                                {/block:Tags}
+                            </ul>
+                            {/block:HasTags}
+                        </div>
+                    </article>
+                    {/block:Posts}
+                {/block:TagPage}
+            </div>
+        </div>
+            
+        <footer id="footer" class="page-foot"></footer>
+
+        <script>
+            var Optica = {};
+            Optica.TITLE_COLOR = "{TitleColor}";
+            Optica.ENDLESS_SCROLLING = {block:IfEndlessScrolling}true{/block:IfEndlessScrolling}{block:IfNotEndlessScrolling}false{/block:IfNotEndlessScrolling};
+            Optica.LAYOUT = "{select:Layout}";
+            Optica.GRID_LAYOUT = (Optica.LAYOUT === 'grid');
+            Optica.ENDLESS_NOTES_SCROLLING = {block:IfDisqusShortname}false{/block:IfDisqusShortname}{block:IfNotDisqusShortname}true{/block:IfNotDisqusShortname};
+        </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="http://static.tumblr.com/vr9xgox/sBgmmjhyw/jquery-1.9.1.min.js"%3E%3C/script%3E'));</script>
+        <script src="http://static.tumblr.com/vr9xgox/Azhmnml1q/jquery.masonry.min.js"></script>
+        <script src="http://static.tumblr.com/vr9xgox/q6Bmzia9p/main-min.js"></script>
+
+        <script>
+        //Ugh...having to inject content via api calls is gross...
+
+        {block:IndexPage}
+            //TODO only run this on the home page
+            //inject challenge summaries and link to /tagged pages
+            window.onload = function() {
+                $.get("{text:Tumblr API URL}/posts?api_key={text:Tumblr API Key}&tag=challenge", 
+                    function(data) {
+                        data.response.posts.forEach(function(post) {
+                        //TODO: This is SUPER volatile - the date tage must be the first one
+                        var monthTag = post.tags[0].slice(0, -1);
+                        $("#post-wrap").append("<div class='assignment'><p><span class='ht'>#</span>" + 
+                            monthTag + "</p><h3><a href='/tagged/" + monthTag + "'>" + post.title + "</a></h3></div>");
+                    });
+                }, "jsonp"
+                );
+            };          
+        {/block:IndexPage}
+
+        {block:TagPage}
+            //inject challenge post
+            window.onload = function() {
+                $.get("{text:Tumblr API URL}/posts?api_key={text:Tumblr API Key}&tag={Tag}c", 
+                    function(data) {
+                        var post = data.response.posts[0];
+                        $("#dsgnmnt").append("<h2>" + post.title + "</h2>" + post.body);
+                    }, "jsonp"
+                );
+            };
+        {/block:TagPage}
+        </script>
+        
+        {block:IfGoogleAnalyticsID}
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+              ga('create', '{text:Google Analytics ID}', 'tumblr.com');
+              ga('send', 'pageview');
+            </script>
+        {/block:IfGoogleAnalyticsID}
+    </body>
+</html>
