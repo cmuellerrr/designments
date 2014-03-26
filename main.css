@@ -954,21 +954,27 @@ html {
     $PAGE-HEAD
 \*------------------------------------*/
 .masthead {
-  padding: 100px 10px;
-  background: #424242 url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat top center fixed;
-  color: #fff;
+  padding: 20px;
+  background-color: #fff;
   text-align: center; }
-  @media only screen and (max-width: 1049px) {
+/*  @media only screen and (max-width: 1049px) {
     .masthead {
       padding-top: 75px;
       padding-bottom: 75px; } }
   @media only screen and (max-width: 480px) {
     .masthead {
       padding-top: 50px;
-      padding-bottom: 50px; } }
+      padding-bottom: 50px; } }*/
+
+.masthead .wrap {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0;
+}
 
 .site-logo {
-  display: inline-block; }
+  display: inline-block;
+  float: left; }
   .site-logo img {
     vertical-align: bottom; }
 
