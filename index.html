@@ -129,7 +129,8 @@
         <header class="page-head">
             <div class="wrap">
                 {block:IndexPage}
-                    {block:TagPage}<h1><span class="ht">#</span>{Tag}</h1>{/block:TagPage}
+                    <h1 class="page-title {block:TagPage}hidden{/block:TagPage}">WELCOME</h1>
+                    {block:TagPage}<h1 class="page-title"><span class="ht">#</span>{Tag}</h1>{/block:TagPage}
                     <p class="site-description {block:TagPage}hidden{/block:TagPage}">{Description}</p>
                     {block:TagPage}<div id="dsgnmnt"></div>{/block:TagPage}
                 {/block:IndexPage}
@@ -139,8 +140,8 @@
         <div class="page-content">
             <div class="wrap">
                 {block:IndexPage}
-                <h2 class="{block:TagPage}hidden{/block:TagPage}">Challenges</h2>
-                {block:TagPage}<h2>Submissions</h2>{/block:TagPage}
+                <h2 class="posts-title {block:TagPage}hidden{/block:TagPage}">CHALLENGES</h2>
+                {block:TagPage}<h2 class="posts-title">SUBMISSIONS</h2>{/block:TagPage}
                 {/block:IndexPage}
 
                 <div id="posts">

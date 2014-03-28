@@ -105,12 +105,12 @@ html {
 /**
  * Typographic scale
  */
-h1, .h1 {
+h1, .h1, .page-title {
   font-size: 30px;
   font-size: 2.14286rem;
   line-height: 1.4; }
 
-h2, .h2, .page-title {
+h2, .h2 {
   font-size: 24px;
   font-size: 1.71429rem;
   line-height: 1.75; }
@@ -1005,8 +1005,19 @@ html {
   .page-head .wrap {
     max-width: 700px; }
 
+.page-title {
+    font-weight: bold;
+}
+
 .site-description {
-  margin-bottom: 0; }
+  margin-bottom: 0; 
+  font-size: 16px;
+}
+
+#dsgnmnt {
+    font-size: 16px;
+    text-align: left;
+}
 
 .site-links,
 .social-links {
@@ -1068,6 +1079,12 @@ html {
     max-width: 520px;
     margin: 0 auto; } }
 
+.posts-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
 /**
  * Posts
  */
@@ -1096,7 +1113,7 @@ html {
 
 .post-content + .post-foot .post-meta {
   padding-top: 13px;
-  border-top: 1px solid #ebebeb; }
+  /*border-top: 1px solid #ebebeb;*/ }
 
 .post-content {
   padding: 20px; }
