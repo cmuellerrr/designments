@@ -920,7 +920,6 @@ img.mfp-img {
     $PAGE
 \*------------------------------------*/
 html {
-  background-color: #f2f2f2;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   color: #707070;
   -webkit-font-smoothing: antialiased; }
@@ -943,6 +942,7 @@ html {
 .post-comments {
   overflow: hidden;
   background-color: #fff;
+  border: 1px solid #ebebeb;
   border-radius: 3px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
@@ -954,8 +954,9 @@ html {
     $PAGE-HEAD
 \*------------------------------------*/
 .masthead {
-  padding: 20px;
-  background-color: #fff; }
+  padding: 10px;
+  background-color: #fff;
+  text-align: center; }
 /*  @media only screen and (max-width: 1049px) {
     .masthead {
       padding-top: 75px;
@@ -972,7 +973,21 @@ html {
 }
 
 .site-logo {
-  display: inline-block; }
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid;
+  padding: 0 5px; 
+}
+
+.site-logo a {
+    color: #707070;
+}
+
+.site-logo a:hover, .site-logo a:focus {
+    text-decoration: none;
+}
+
   .site-logo img {
     vertical-align: bottom; }
 
@@ -998,11 +1013,11 @@ html {
 
 .page-head {
   background-color: #fff;
-  border-bottom: 1px solid #e9e9e9;
-  text-align: center; }
+  text-align: center;
+  border-bottom: 1px solid #e9e9e9; }
   .page-head .wrap {
     max-width: 700px;
-    padding: 25px 10px; }
+    padding: 80px 10px; }
 
 .page-title {
     font-weight: bold;
@@ -1011,12 +1026,7 @@ html {
 .site-description {
   margin-bottom: 0; 
   font-size: 16px;
-  line-height: 45px;
-}
-
-#dsgnmnt {
-    font-size: 16px;
-    line-height: 45px;
+  line-height: 30px;
 }
 
 .site-links,
@@ -1083,6 +1093,33 @@ html {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    text-transform: uppercase;
+}
+
+.assignment {
+    max-width: 250px;
+    margin: 40px 30px;
+    float: left;
+    text-align: center;
+}
+
+.assignment h3, .assignment-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.assignment h3 {
+    font-size: 14px;
+}
+
+.assignment-title {
+    font-size: 18px;
+}
+
+.assignment-tag {
+    font-size: 12px;
+    font-style: italic;
 }
 
 /**

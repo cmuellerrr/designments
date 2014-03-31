@@ -30,8 +30,8 @@
         <meta name="select:Avatar style" content="hidden" title="Hidden">
 
         <meta name="text:Disqus shortname" content="">
-        <meta name="text:Tumblr API URL" content="">
-        <meta name="text:Tumblr API Key" content="">
+        <meta name="text:API URL" content="http://api.tumblr.com/v2/blog/designments.tumblr.com">
+        <meta name="text:API Key" content="DRyNmZLPyJJ0OWz5G7J0FIZGJu0jXxX1EB44umexzrOBPGazNx">
         <meta name="text:Google analytics ID" content="">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +41,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         
         <link rel="stylesheet" href="http://static.tumblr.com/vr9xgox/PuGmmhqcs/normalize.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/3imr7iu/kRqn2v0gd/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/3imr7iu/tOyn39kth/main.css">
 
         <!-- HTML5 Shiv -->
         <!--[if lt IE 9]>
@@ -122,28 +122,23 @@
     <body data-urlencoded-name="{URLEncodedName}">
         <div class="masthead">
             <div class="wrap">
-                <a class="site-logo" href="/"><img src="{image:Logo}" alt="{Title}"></a>
+                <div class="site-logo"><a href="/">d-a</a></div>
             </div>
         </div>
 
         <header class="page-head">
             <div class="wrap">
                 {block:IndexPage}
-                    <h1 class="page-title {block:TagPage}hidden{/block:TagPage}">WELCOME</h1>
+                    <h1 class="page-title {block:TagPage}hidden{/block:TagPage}">Designments</h1>
                     {block:TagPage}<h1 class="page-title"><span class="ht">#</span>{Tag}</h1>{/block:TagPage}
                     <p class="site-description {block:TagPage}hidden{/block:TagPage}">{Description}</p>
-                    {block:TagPage}<div id="dsgnmnt"></div>{/block:TagPage}
+                    {block:TagPage}<div id="assignment" class="site-description"></div>{/block:TagPage}
                 {/block:IndexPage}
             </div>
         </header>
 
         <div class="page-content">
             <div class="wrap">
-                {block:IndexPage}
-                <h2 class="posts-title {block:TagPage}hidden{/block:TagPage}">CHALLENGES</h2>
-                {block:TagPage}<h2 class="posts-title">SUBMISSIONS</h2>{/block:TagPage}
-                {/block:IndexPage}
-
                 <div id="posts">
                     {block:TagPage}
                         {block:Posts}
@@ -204,12 +199,11 @@
                             </div>
                             {/block:Chat}
 
-                            <!--<p>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a></p>
-                            <a class="post-author-avatar" href="{PostAuthorURL}" target=""><img src="{PostAuthorPortraitURL-40}" alt="{PostAuthorName}"/></a>-->
+                            <!--<a class="post-author-avatar" href="{PostAuthorURL}" target=""><img src="{PostAuthorPortraitURL-40}" alt="{PostAuthorName}"/></a>-->
                             
                             <footer class="post-foot">
                                 <ul class="post-meta">
-                                    <li><a href="{Permalink}" title="{TimeAgo}">{DayOfMonth} {ShortMonth} {Year}{block:NoteCount} / {NoteCountWithLabel}{block:NoteCount}</a></li>
+                                    <li>by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a> - <a href="{Permalink}" title="{TimeAgo}">{DayOfMonth} {ShortMonth} {Year}{block:NoteCount} / {NoteCountWithLabel}{block:NoteCount}</a></li>
                                     <li class="post-like-btn">{LikeButton size="16" color="grey"}</li>
                                     <li class="post-reblog-btn">{ReblogButton size="16" color="grey"}</li>
                                 </ul>
@@ -231,7 +225,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
-        <script src="http://static.tumblr.com/vr9xgox/q6Bmzia9p/main-min.js"></script>
+        <script src="http://static.tumblr.com/3imr7iu/BS1n30twq/main-min.js"></script>
 
         <script>
         //Ugh...having to inject content via api calls is gross...
@@ -240,15 +234,20 @@
             //TODO only run this on the home page
             //inject challenge summaries and link to /tagged pages
             window.onload = function() {
-                $.get("{text:Tumblr API URL}/posts?api_key={text:Tumblr API Key}&tag=challenge", 
+                $.get("{text:API URL}/posts?api_key={text:API Key}&tag=challenge", 
                     function(data) {
-                        data.response.posts.forEach(function(post) {
-                        //TODO: This is SUPER volatile - the date tage must be the first one
-                        var monthTag = post.tags[0].slice(0, -1);
-                        $("#posts").append("<div class='assignment'><p><span class='ht'>#</span>" + 
-                            monthTag + "</p><h3><a href='/tagged/" + monthTag + "'>" + post.title + "</a></h3></div>");
-                    });
-                }, "jsonp"
+                        var posts = data.response.posts;
+                        var size = posts.length;
+                        for (var i = 0; i < size; i++) {
+                            var post = posts[i];
+                            //TODO: This is SUPER volatile - the date tage must be the first one
+                            var monthTag = post.tags[0].slice(0, -1);
+                            $("#posts").append("<article class='assignment'><h3>Assign. #" + 
+                                (size-i) + "</h3><p class='assignment-title'><a href='/tagged/" + monthTag + "'>" + 
+                                post.title + "</a></h3><p class='assignment-tag'><span class='ht'>#</span>" + 
+                                monthTag + "</p></article>");
+                        }
+                    }, "jsonp"
                 );
             };          
         {/block:IndexPage}
@@ -256,10 +255,10 @@
         {block:TagPage}
             //inject challenge post
             window.onload = function() {
-                $.get("{text:Tumblr API URL}/posts?api_key={text:Tumblr API Key}&tag={Tag}c", 
+                $.get("{text:API URL}/posts?api_key={text:API Key}&tag={Tag}c", 
                     function(data) {
                         var post = data.response.posts[0];
-                        $("#dsgnmnt").append("<h2>" + post.title + "</h2>" + post.body);
+                        $("#assignment").append("<h2>" + post.title + "</h2>" + post.body);
                     }, "jsonp"
                 );
             };
