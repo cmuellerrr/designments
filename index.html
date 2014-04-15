@@ -1,10 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>designments</title>
+	{MobileAppHeaders}
+    <meta charset="utf-8">
+    <title>{Title}{block:TagPage} — {Tag}{/block:TagPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+
+	<!-- Theme Defaults -->
+    <meta name="image:Logo" content="" />
+    <meta name="text:API URL" content="">
+    <meta name="text:API Key" content="">
+    <meta name="text:Google analytics ID" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
 	<link rel="stylesheet" href="main.css">
+	<style>
+	    {CustomCSS}
+    </style>
 </head>
 <body>
 	<header>
@@ -16,47 +33,46 @@
 		</nav>
 	</header>
 	<div class="content">
-		<div class="description">
-			<p>Because if you aren't getting better, you're getting worse.</p>
+		{block:IndexPage}
+		<div class="page-title">
+			<p class="{block:TagPage}hidden{/block:TagPage}">{Description}</p>
+			{block:TagPage}<p>#{Tag}</p>{/block:TagPage}
 		</div>
-		<div class="postList">
+
+		<div class="post-list">
 			<ul>
-				<li class="assignment">
-					<h3 data-tag="#feb2014"><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span>-</span><span><a href="">xx notes</a></span></div>
+				{block:Posts}
+                {block:Text}
+				<li class="excerpt {TagsAsClasses}">
+					<a class="author-avatar" href="{PostAuthorURL}" target="_blank"><img src="{PostAuthorPortraitURL-40}" alt="{PostAuthorName}'s beautiful face"/></a>
+					{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+					<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span><span>-</span><span><a href="">xx notes</a></span></div>
 				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
-				<li class="excerpt">
-					<a class="author-avatar" href="" target=""><img src="https://avatars3.githubusercontent.com/u/3406513?s=40" alt="{PostAuthorName}"/></a>
-					<h3><a href="">Lorem Ipsum Dolor Sit</a></h3>
-					<div class="meta"><span>Submitted by <a href="">John Doe</a> on May nth, 2014</span><span> - </span><span><a href="">xx notes</a></span></div>
-				</li>
+				{/block:Text}
+				{/block:Posts}
 			</ul>
 		</div>
+		{/block:IndexPage}
+
+		{block:PermalinkPage}
+		<div class="post">
+			{block:Posts}
+            {block:Text}
+				{block:Title}<h2>{Title}</h2>{/block:Title}
+    	        {block:Body}{Body}{/block:Body}
+    	    {/block:Text}
+  			{/block:Posts}
+		</div>
+		{/block:PermalinkPage}
 	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		window.onload = function() {
+			$(".post img").each(function() {
+				$(this).parent('p').addClass('center');
+			});
+		};
+	</script>
 </body>
 </html>
