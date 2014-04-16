@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Mako|Noto+Sans|Open+Sans:300);
+@import url(http://fonts.googleapis.com/css?family=Mako|Open+Sans:300);
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -18,21 +18,18 @@
 
 body {
 	margin: 0;
-	font-family: 'Noto Sans', sans-serif;
 	font-family: 'Mako', sans-serif;
+	color: #333;
 	background: whitesmoke;
 }
 
 a {
 	text-decoration: none;
+	color: #333;
 }
 
 a:hover {
 	text-decoration: underline;
-}
-
-h3, p, a {
-	color: #121821;
 }
 
 header {
@@ -41,30 +38,35 @@ header {
 	background: #2c3e50;
 }
 
-nav {
+.logo img {
+	width: 25px;
+	margin: 12px 0 0 15px;
+}
+
+header nav {
 	height: 60px;
 	background: #34495e;
 }
 
-nav ul {
+header nav ul {
 	margin: 0;
 	padding: 18px 0 0;
 	float: right;
 	list-style: none;
 }
 
-nav ul li {
+header nav ul li {
 	display: inline;
 	margin-right: 20px;
 }
 
-nav ul li a {
+header nav ul li a {
 	font-size: 18px;
 	text-decoration: none;
 	color: #fff;
 }
 
-nav ul li a:hover {
+header nav ul li a:hover {
 	text-decoration: none;
 }
 
@@ -76,6 +78,7 @@ nav ul li a:hover {
 
 body>.content {
 	min-height: 700px;
+	margin-bottom: 200px;
 	background: #fff;
 }
 
@@ -112,7 +115,8 @@ body>.content {
 	color: #9099a7;
 }
 
-.excerpt .meta span a {
+.excerpt .meta span a, 
+.post .meta span a {
 	font-style: italic;
 	color: #9099a7;
 }
@@ -145,10 +149,19 @@ body>.content {
 }
 
 .post {
-	padding: 30px 0;
+	padding: 50px 0;
 }
 
 .post h2 {
 	margin: 0;
+}
+
+.post .meta {
+	font-size: 14px;
+	color: #9099a7;
+}
+
+.post p {
+	font-family: 'Open Sans', sans-serif;
 }
 

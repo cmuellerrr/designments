@@ -26,8 +26,9 @@
 <body>
 	<header>
 		<nav class="content">
+			<a class="logo" href="/" target=""><img src="{image:Logo}" alt="Designments"/></a>
 			<ul>
-				<li><a href="/">designments</a></li>
+				<li><a href="/submit">submit</a></li>
 				<li><a href="/about">about</a></li>
 			</ul>
 		</nav>
@@ -46,7 +47,7 @@
 				<li class="excerpt {TagsAsClasses}">
 					<a class="author-avatar" href="{PostAuthorURL}" target="_blank"><img src="{PostAuthorPortraitURL-40}" alt="{PostAuthorName}'s beautiful face"/></a>
 					{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
-					<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span><span>-</span><span><a href="">xx notes</a></span></div>
+					<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span>{block:NoteCount}<span> - {NoteCountWithLabel}</span>{/block:NoteCount}</div>
 				</li>
 				{/block:Text}
 				{/block:Posts}
@@ -55,18 +56,20 @@
 		{/block:IndexPage}
 
 		{block:PermalinkPage}
-		<div class="post">
-			{block:Posts}
+		{block:Posts}
+			<div class="post {TagsAsClasses}">
             {block:Text}
+            	<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span></div>
 				{block:Title}<h2>{Title}</h2>{/block:Title}
     	        {block:Body}{Body}{/block:Body}
     	    {/block:Text}
-  			{/block:Posts}
-		</div>
+    	    </div>
+  		{/block:Posts}
 		{/block:PermalinkPage}
 	</div>
 
 	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	{block:PermalinkPage}
 	<script>
 		window.onload = function() {
 			$(".post img").each(function() {
@@ -74,5 +77,6 @@
 			});
 		};
 	</script>
+	{/block:PermalinkPage}
 </body>
 </html>
