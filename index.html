@@ -8,6 +8,7 @@
 
 	<!-- Theme Defaults -->
     <meta name="image:Logo" content="" />
+    <meta name="image:Footer Logo" content="" />
     <meta name="text:API URL" content="">
     <meta name="text:API Key" content="">
     <meta name="text:Google analytics ID" content="">
@@ -28,8 +29,7 @@
 		<nav class="content">
 			<a class="logo" href="/" target=""><img src="{image:Logo}" alt="Designments"/></a>
 			<ul>
-				<li><a href="/submit">submit</a></li>
-				<li><a href="/about">about</a></li>
+				<li><a href="/submit">Submit</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -59,15 +59,23 @@
 		{block:Posts}
 			<div class="post {TagsAsClasses}">
             {block:Text}
+            	{block:Title}<h2>{Title}</h2>{/block:Title}
             	<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span></div>
-				{block:Title}<h2>{Title}</h2>{/block:Title}
     	        {block:Body}{Body}{/block:Body}
     	    {/block:Text}
     	    </div>
   		{/block:Posts}
 		{/block:PermalinkPage}
 	</div>
-
+	<footer>
+		<nav class="content">
+			<img src="{image:Logo}" alt="Designments"/>
+			<ul>
+				<li><a href="/submit">Submit</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</nav>
+	</footer>
 	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	{block:PermalinkPage}
 	<script>
