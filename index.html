@@ -20,6 +20,7 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
 	<link rel="stylesheet" href="main.css">
+	<!--<link rel="stylesheet" href="http://static.tumblr.com/3imr7iu/I0an49foc/main.css">-->
 	<style>
 	    {CustomCSS}
     </style>
@@ -63,7 +64,12 @@
             	<div class="meta"><span>Submitted by <a href="{PostAuthorURL}" target="_blank">{PostAuthorName}</a>{block:Date} on {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}{/block:Date}</span></div>
     	        {block:Body}{Body}{/block:Body}
     	    {/block:Text}
-    	    </div>
+	    	    <ul class="buttons">
+					<li class="like">{LikeButton size="16" color="grey"}</li>
+	    	        <li class="reblog">{ReblogButton size="16" color="grey"}</li>
+				</ul>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+			</div>
   		{/block:Posts}
 		{/block:PermalinkPage}
 	</div>
