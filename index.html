@@ -86,9 +86,14 @@
 	{block:PermalinkPage}
 	<script>
 		window.onload = function() {
+			//no control over the classes of elements within a post
 			$(".post img").each(function() {
 				$(this).parent('p').addClass('center');
 			});
+			//sigh, tumblr reuses the post page and has no indication that its the submit form
+			if (window.location.pathname == '/submit') {
+				$('.meta, .buttons').hide();
+			}
 		};
 	</script>
 	{/block:PermalinkPage}
